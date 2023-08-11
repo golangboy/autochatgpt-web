@@ -11,10 +11,11 @@ def job():
     access_token = auth.get_access_token()
     os.system("docker stop chatgpt-web")
     os.system("docker rm chatgpt-web")
-    s = f"docker run --name chatgpt-web --rm -itd -p 127.0.0.1:3002:3002 -e OPENAI_ACCESS_TOKEN={access_token} chenzhaoyu94/chatgpt-web"
+    s = f"docker run --name chatgpt-web --rm -itd -p 3002:3002 -e OPENAI_ACCESS_TOKEN={access_token} chenzhaoyu94/chatgpt-web"
     print(s)
     os.system(s)
     print("Restarted!")
+
 
 # 默认运行时执行一次
 job()
